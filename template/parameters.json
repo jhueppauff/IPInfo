@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "storageAccountName": {
+            "value": "stipinfoprodwe001"
+        },
+        "hostingPlanName": {
+            "value": "plan-ipinfo-prod-we-001"
+        },
+        "appInsightsName": {
+            "value": "ai-ipinfo-prod-we-001"
+        },
+        "functionAppName": {
+            "value": "func-ipinfo-prod-we-001"
+        }
+    }
+}
