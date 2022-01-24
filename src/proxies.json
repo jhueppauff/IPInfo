@@ -3,7 +3,7 @@
     "proxies": {
         "json": {
             "matchCondition": {
-                "methods": [ "GET, POST" ],
+                "methods": [ "GET", "POST" ],
                 "route": "/json"
             },
             "backendUri": "https://%WEBSITE_HOSTNAME%/api/GetIP"
