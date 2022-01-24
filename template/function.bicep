@@ -5,6 +5,7 @@ param storageAccountName string
 param hostingPlanName string
 param appInsightsName string
 param functionAppName string
+param customDomainName string
 
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -13,7 +14,6 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   kind: 'StorageV2'
   sku: {
     name: 'Standard_LRS'
-    tier: 'Standard'
   }
   properties: {
     supportsHttpsTrafficOnly: true
@@ -77,5 +77,13 @@ resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
         }
       ]
     }
+  }
+}
+
+resource bingin 'Microsoft.Web/sites/hostNameBindings@2021-02-01' = {
+  name: customDomainName
+  parent: functionApp
+  properties: {
+    siteName: functionApp.name
   }
 }
