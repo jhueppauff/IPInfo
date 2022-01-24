@@ -25,12 +25,17 @@ namespace IPInfo
             }
 
             // Get PTR
-            ip.IPAddressHostName = (await Dns.GetHostEntryAsync(ip.IPAddress)).HostName;
-
+            try
+            {
+                var dnsResponse = await Dns.GetHostEntryAsync(ip.IPAddress);
+                ip.IPAddressHostName = dnsResponse.HostName;
+            }
+            catch (System.Exception)
+            {
+                ip.IPAddressHostName = "Issue resolving PTR";
+            }
 
             var response = req.CreateResponse(HttpStatusCode.OK);
-            //response.Headers.Add("Content-Type", "application/json; charset=utf-8");
-
             await response.WriteAsJsonAsync(ip);
 
             return response;
