@@ -24,6 +24,10 @@ namespace IPInfo
                 ip.IPAddress = values.FirstOrDefault().Split(new char[] { ',' }).FirstOrDefault().Split(new char[] { ':' }).FirstOrDefault();
             }
 
+            // Get PTR
+            ip.IPAddressHostName = (await Dns.GetHostEntryAsync(ip.IPAddress)).HostName;
+
+
             var response = req.CreateResponse(HttpStatusCode.OK);
             //response.Headers.Add("Content-Type", "application/json; charset=utf-8");
 
