@@ -6,7 +6,7 @@
                 "methods": [ "GET, POST" ],
                 "route": "/json"
             },
-            "backendUri": "https://%HELLO_HOST%/api/GetIP"
+            "backendUri": "https://%WEBSITE_HOSTNAME%/api/GetIP"
         }
     }
 }
