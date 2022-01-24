@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "json": {
+            "matchCondition": {
+                "methods": [ "GET, POST" ],
+                "route": "/json"
+            },
+            "backendUri": "https://%HELLO_HOST%/api/GetIP"
+        }
+    }
+}
